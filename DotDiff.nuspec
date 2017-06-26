@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>DotDiff</id>
+    <title>DotDiff</title>
+    <version>1.0.0</version>
+    <authors>Samer Al-Rawi</authors>
+    <projectUrl>https://github.com/SamerAlRawi/DotDiff</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description> Object comparison and audit library for .net </description>
+    <summary>DotDiff package</summary>
+    <copyright>Copyright Samer Al-Rawi</copyright>
+    <language>en-US</language>
+    <dependencies>
+      
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="DotDiff\bin\release\DotDiff.dll" target="lib\net45\DotDiff.dll" />
+  </files>
+</package>
