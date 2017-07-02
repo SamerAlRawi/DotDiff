@@ -12,7 +12,7 @@ namespace DotDiff.Console
             //XML
             var xml = new XmlAuditBuilder<User>()
                 .Audit(user1, user2)
-                .Include(_ => _.Email)
+                //.Include(_ => _.Email) not needed because it have [Audit] attribute
                 .Include(_ => _.Password)
                 .Include(_ => _.UserName)
                 .Include(_ => _.Id)
@@ -25,7 +25,7 @@ namespace DotDiff.Console
             //JSON
             var json = new JsonAuditBuilder<User>()
                 .Audit(user1, user2)
-                .Include(_ => _.Email)
+                //.Include(_ => _.Email) not needed because it have [Audit] attribute
                 .Include(_ => _.Password)
                 .Include(_ => _.UserName)
                 .Include(_ => _.Id)

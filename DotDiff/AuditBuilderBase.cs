@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace DotDiff
 {
@@ -14,7 +16,26 @@ namespace DotDiff
         {
             _oldValue = oldValue;
             _newValue = newValue;
+            TrackAnotatedProperties();
             return this;
+        }
+
+        private void TrackAnotatedProperties()
+        {
+            var props = typeof(T).GetProperties();
+            var auditProps = props.Where(pi => pi.GetCustomAttributes(typeof(AuditAttribute), false).Length > 0);
+            foreach (var propertyInfo in auditProps)
+            {
+                AddAuditPair(propertyInfo);
+            }
+        }
+
+        private void AddAuditPair(PropertyInfo propertyInfo)
+        {
+            var key = propertyInfo.Name;
+            var oldValue = propertyInfo.GetValue(_oldValue, null);
+            var newValue = propertyInfo.GetValue(_newValue, null);
+            AddAuditPairToList(key, oldValue, newValue);
         }
 
         public virtual IAuditBuilder<T> Include(AuditPair auditPair)
@@ -36,13 +57,18 @@ namespace DotDiff
             string propertyName = member.Member.Name;
             object oldValue = exp.Compile()(_oldValue);
             object newValue = exp.Compile()(_newValue);
+            AddAuditPairToList(propertyName, oldValue, newValue);
+            return this;
+        }
+
+        private void AddAuditPairToList(string key, object oldValue, object newValue)
+        {
             AuditPairs.Add(new AuditPair
             {
                 NewValue = newValue?.ToString(),
                 OldValue = oldValue?.ToString(),
-                Key = propertyName
+                Key = key
             });
-            return this;
         }
 
         public virtual string Serialize()
