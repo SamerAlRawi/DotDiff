@@ -2,7 +2,7 @@
 {
     public class AuditPair
     {
-        public string PropertyName { get; set; }
+        public string Key { get; set; }
         public string OldValue { get; set; }
         public string NewValue { get; set; }
     }

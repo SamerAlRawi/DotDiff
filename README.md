@@ -42,6 +42,21 @@ var xml = new XmlAuditBuilder<User>()
             WriteLine(xml);
 ```
 
+For manually added attributes you can use the auditpair overload:
+```csharp
+    var xml = new XmlAuditBuilder<User>()
+                .Audit(user1, user2)
+                .Include(_ => _.Id)
+                .Include(
+                    new AuditPair{
+                        Key = "OtherAttribute123",
+                        OldValue = "any value",
+                        NewValue = null //or any other value if needed  
+                    }
+                )
+                .Serialize();
+```
+
 
 For Json serialization add the following live to your Program.cs main:
 ```csharp

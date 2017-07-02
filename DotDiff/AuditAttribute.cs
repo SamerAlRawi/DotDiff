@@ -2,7 +2,7 @@
 
 namespace DotDiff
 {
-    [AttributeUsage(AttributeTargets.Property| AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class AuditAttribute : Attribute
     {
 

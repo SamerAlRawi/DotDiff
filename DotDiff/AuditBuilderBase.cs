@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace DotDiff
 {
-    public class AuditBuilderBase<T> : IAuditBuilder<T> where T : class
+    public abstract class AuditBuilderBase<T> : IAuditBuilder<T> where T : class
     {
         private T _oldValue;
         private T _newValue;
@@ -14,6 +14,12 @@ namespace DotDiff
         {
             _oldValue = oldValue;
             _newValue = newValue;
+            return this;
+        }
+
+        public virtual IAuditBuilder<T> Include(AuditPair auditPair)
+        {
+            AuditPairs.Add(auditPair);
             return this;
         }
 
@@ -34,14 +40,14 @@ namespace DotDiff
             {
                 NewValue = newValue?.ToString(),
                 OldValue = oldValue?.ToString(),
-                PropertyName = propertyName
+                Key = propertyName
             });
             return this;
         }
 
         public virtual string Serialize()
         {
-            throw new NotImplementedException($"{typeof(AuditBuilderBase<>).Name} is not for use, Please use {typeof(XmlAuditBuilder<>).Name} OR {typeof(JsonAuditBuilder<>).Name}");
+            throw new NotImplementedException($"{typeof(AuditBuilderBase<>).Name} is a base class, Please use {typeof(XmlAuditBuilder<>).Name} OR {typeof(JsonAuditBuilder<>).Name}");
         }
     }
 }

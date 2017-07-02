@@ -14,6 +14,12 @@ namespace DotDiff
             return this;
         }
 
+        public override IAuditBuilder<T> Include(AuditPair auditPair)
+        {
+            base.Include(auditPair);
+            return this;
+        }
+
         public override IAuditBuilder<T> Include(Expression<Func<T, object>> exp)
         {
             base.Include(exp);
@@ -28,7 +34,7 @@ namespace DotDiff
             memoryStream.Flush();
             byte[] json = memoryStream.ToArray();
             memoryStream.Close();
-
+            AuditPairs.Clear();
             return Encoding.UTF8.GetString(json, 0, json.Length);
         }
     }
