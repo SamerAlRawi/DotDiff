@@ -10,6 +10,9 @@ Object comparison and audit library for .net
 
 [Manually Adding KeyPairs](#keypairs)
 
+[Json Serialization](#json)
+
+
 #### <a name="expressions"></a>Expressions Examples
 
 Create a new console application and install the following nuget package
@@ -50,28 +53,6 @@ var xml = new XmlAuditBuilder<User>()
                 .Serialize();
             ForegroundColor = ConsoleColor.Green;
             WriteLine(xml);
-```
-
-For Json serialization add the following line to your Program.cs main:
-```csharp
-var user1 = new User{
-    //set all properties here
-};
-var user2 = new User{
-    //set all properties here
-};
-
-var json = new JsonAuditBuilder<User>()
-                .Audit(user1, user2)
-                .Include(_ => _.Email)
-                .Include(_ => _.Password)
-                .Include(_ => _.UserName)
-                .Include(_ => _.Id)
-                .Include(_ => _.Enabled)
-                .Include(_ => _.LastLogin)
-                .Serialize();
-            ForegroundColor = ConsoleColor.Green;
-            WriteLine(json);
 ```
 
 ###
@@ -121,7 +102,29 @@ The result will include the email values by default:
 </ArrayOfAuditPair>
 ```
 
+###
+###
+#### <a name="keypairs"></a>Key Pairs Example
+
+For manually added attributes you can use the auditpair overload:
+```csharp
+    var xml = new XmlAuditBuilder<User>()
+                .Audit(user1, user2)
+                .Include(_ => _.Id)
+                .Include(
+                    new AuditPair{
+                        Key = "OtherAttribute123",
+                        OldValue = "any value",
+                        NewValue = null //or any other value if needed  
+                    }
+                )
+                .Serialize();
+```
+
+#### <a name="json"></a>Json Example
+
 For Json serialization add the following line to your Program.cs main:
+all above examples applies just replace XmlAuditBuilder with JsonAuditBuilder
 ```csharp
 var user1 = new User{
     //set all properties here
@@ -141,27 +144,6 @@ var json = new JsonAuditBuilder<User>()
                 .Serialize();
             ForegroundColor = ConsoleColor.Green;
             WriteLine(json);
-```
-
-
-
-###
-###
-#### <a name="keypairs"></a>Key Pairs Example
-
-For manually added attributes you can use the auditpair overload:
-```csharp
-    var xml = new XmlAuditBuilder<User>()
-                .Audit(user1, user2)
-                .Include(_ => _.Id)
-                .Include(
-                    new AuditPair{
-                        Key = "OtherAttribute123",
-                        OldValue = "any value",
-                        NewValue = null //or any other value if needed  
-                    }
-                )
-                .Serialize();
 ```
 
 ###

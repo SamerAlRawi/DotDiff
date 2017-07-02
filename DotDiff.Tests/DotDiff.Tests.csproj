@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttributesAuditing.cs" />
+    <Compile Include="AttributesAuditingTests.cs" />
     <Compile Include="JsonAuditBuilderTests.cs" />
     <Compile Include="XmlAuditBuilderTests.cs" />
     <Compile Include="Item.cs" />

@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace DotDiff.Tests
 {
     [TestFixture]
-    public class AttributesAuditing
+    public class AttributesAuditingTests
     {
         [Test]
         public void Audit_Adds_Annotated_Properties_To_Collection()
