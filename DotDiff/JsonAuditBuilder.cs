@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq.Expressions;
+﻿using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
@@ -8,24 +6,6 @@ namespace DotDiff
 {
     public class JsonAuditBuilder<T> : AuditBuilderBase<T>, IAuditBuilder<T> where T : class
     {
-        public override IAuditBuilder<T> Audit(T oldValue, T newValue)
-        {
-            base.Audit(oldValue, newValue);
-            return this;
-        }
-
-        public override IAuditBuilder<T> Include(AuditPair auditPair)
-        {
-            base.Include(auditPair);
-            return this;
-        }
-
-        public override IAuditBuilder<T> Include(Expression<Func<T, object>> exp)
-        {
-            base.Include(exp);
-            return this;
-        }
-
         public override string Serialize()
         {
             using (var memoryStream = new MemoryStream())
