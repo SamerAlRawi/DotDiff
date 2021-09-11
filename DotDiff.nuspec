@@ -3,7 +3,7 @@
   <metadata>
     <id>DotDiff</id>
     <title>DotDiff</title>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Samer Al-Rawi</authors>
     <projectUrl>https://github.com/SamerAlRawi/DotDiff</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,6 +11,8 @@
     <summary>DotDiff package</summary>
     <copyright>Copyright Samer Al-Rawi</copyright>
     <language>en-US</language>
+    <license type="expression">MIT</license>
+
     <dependencies>
       
     </dependencies>
