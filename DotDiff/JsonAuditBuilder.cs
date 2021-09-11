@@ -28,14 +28,16 @@ namespace DotDiff
 
         public override string Serialize()
         {
-            var memoryStream = new MemoryStream();
-            var jsonSerializer = new DataContractJsonSerializer(AuditPairs.GetType());
-            jsonSerializer.WriteObject(memoryStream, AuditPairs);
-            memoryStream.Flush();
-            byte[] json = memoryStream.ToArray();
-            memoryStream.Close();
-            AuditPairs.Clear();
-            return Encoding.UTF8.GetString(json, 0, json.Length);
+            using (var memoryStream = new MemoryStream())
+            {
+                var jsonSerializer = new DataContractJsonSerializer(AuditPairs.GetType());
+                jsonSerializer.WriteObject(memoryStream, AuditPairs);
+                memoryStream.Flush();
+                byte[] json = memoryStream.ToArray();
+                memoryStream.Close();
+                AuditPairs.Clear();
+                return Encoding.UTF8.GetString(json, 0, json.Length);
+            }
         }
     }
 }
