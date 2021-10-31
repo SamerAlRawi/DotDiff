@@ -5,6 +5,7 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>DotDiff</RootNamespace>
 		<AssemblyName>DotDiff</AssemblyName>
+		<IsPackable>true</IsPackable>
 	</PropertyGroup>
 
 </Project>
