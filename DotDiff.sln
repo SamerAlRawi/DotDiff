@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotDiff", "DotDiff\DotDiff.csproj", "{8CCD18AD-210B-40EA-AAA6-47A72ECCCAE8}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotDiff.Console", "DotDiff.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FFF683C2-6A33-406F-A585-DB224EFA668C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotDiff.Tests", "DotDiff.Tests\DotDiff.Tests.csproj", "{A67ADE6E-816F-4156-B55C-C1127F997CBD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6826B25E-83D4-4543-8EF2-D4BD75C9A354}"
 	ProjectSection(SolutionItems) = preProject
 		DotDiff.nuspec = DotDiff.nuspec
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotDiff.Tests", "DotDiff.Tests\DotDiff.Tests.csproj", "{9003F821-6261-40BA-BCEE-09FE67A99312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,15 +31,18 @@ Global
 		{E167FCA8-0930-44A3-B3D3-0C6B86D47418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E167FCA8-0930-44A3-B3D3-0C6B86D47418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E167FCA8-0930-44A3-B3D3-0C6B86D47418}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A67ADE6E-816F-4156-B55C-C1127F997CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A67ADE6E-816F-4156-B55C-C1127F997CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A67ADE6E-816F-4156-B55C-C1127F997CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A67ADE6E-816F-4156-B55C-C1127F997CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9003F821-6261-40BA-BCEE-09FE67A99312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9003F821-6261-40BA-BCEE-09FE67A99312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9003F821-6261-40BA-BCEE-09FE67A99312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9003F821-6261-40BA-BCEE-09FE67A99312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A67ADE6E-816F-4156-B55C-C1127F997CBD} = {FFF683C2-6A33-406F-A585-DB224EFA668C}
+		{9003F821-6261-40BA-BCEE-09FE67A99312} = {FFF683C2-6A33-406F-A585-DB224EFA668C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FF39656-01E4-4A45-A1C6-D1C41131E23F}
 	EndGlobalSection
 EndGlobal
